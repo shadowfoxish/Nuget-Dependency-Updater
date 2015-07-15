@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C2F1F24-732D-4A75-836C-A1BB6AD9A1F9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DependencyUpdater</RootNamespace>
+    <AssemblyName>DependencyUpdater</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DependencyUpdater.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigUI\FileListUITypeEditor.cs" />
+    <Compile Include="ConfigUI\DepConfigCollectionUITypeEditor.cs" />
+    <Compile Include="ConfigUI\frmCollectionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigUI\frmCollectionEditor.Designer.cs">
+      <DependentUpon>frmCollectionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigUI\frmFileListEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigUI\frmFileListEditor.Designer.cs">
+      <DependentUpon>frmFileListEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigUI\FolderBrowserUITypeEditor.cs" />
+    <Compile Include="DepConfigItem.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigUI\frmEditConfigItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigUI\frmEditConfigItems.Designer.cs">
+      <DependentUpon>frmEditConfigItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDependencyUpdater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDependencyUpdater.Designer.cs">
+      <DependentUpon>frmDependencyUpdater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeConverters\CollectionTypeConverter.cs" />
+    <Compile Include="VersionAwareStringComparer.cs" />
+    <EmbeddedResource Include="ConfigUI\frmCollectionEditor.resx">
+      <DependentUpon>frmCollectionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigUI\frmFileListEditor.resx">
+      <DependentUpon>frmFileListEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigUI\frmEditConfigItems.resx">
+      <DependentUpon>frmEditConfigItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDependencyUpdater.resx">
+      <DependentUpon>frmDependencyUpdater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DepConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hicon.ico" />
+    <None Include="Resources\help-contents-5.png" />
+    <None Include="Resources\help-about-3.png" />
+    <None Include="Resources\file_locked.png" />
+    <None Include="Resources\bug.png" />
+    <None Include="Resources\configure-2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
