@@ -6,11 +6,11 @@ Windows Binaries are available at http://www.shadowfox.xyz/NDU/NugetDependencyUp
 If you work across multiple .NET projects where some of those projects create Nuget packages your other projects depend on, this utility can ease the copy&paste work of getting updated assemblies from project to project, before you commit, build, and then update your nuget packages.
 
 ## Configuring
-To configure NDU, click on the tools icon in the bottom left and then click 'Edit Configuration...'
+You will need to add at least 2 configurations to use NDU, a Component and a Project.
+To configure NDU, click on the tools icon in the bottom left and then click 'Edit Configuration...' 
 
 1) Next, click the Items option and to the right, click on the [...] box. (Yay property grid!)
 
-You will need to add at least 2 configurations here to use NDU. 
 2) First, add a new Component. A component represents a project that normally generates a nuget package other projects reference. Click 'Add', then click the new item in the list and fill in the options: 
 * ContainerKind: Choose component. 
 * Name : Will display as a button on the main form, sorted into the 'Component' list.
@@ -20,10 +20,12 @@ You will need to add at least 2 configurations here to use NDU.
 * RelativePackagePath: Enter the relative path from the folder into which assemblies should be copied. This should match the location where items are stored when the nuget package is created. Usually something like "lib\net451"
 
 3) Click save.
+
 4) Now add your Project. A project is a destination that has a dependency on a component via nuget. Click Add again, then click the new item in the list and fill in the options:
 * ContainerKind: Choose project. 
 * Name: Will display as a button on the main form, sorted into the 'Project' list.
 * Path: Specify the full path to the packages folder of your project. This is usually found at the root where the solution file is stored. Something like "C:\Code\My.Dependent.Project\packages"
+
 5) Click save, and close out the tool windows.
 
 Configuration is saved on your hard drive at "C:\Users\<user>\AppData\Local\DependencyUpdater" and retrieved each time the program starts.
