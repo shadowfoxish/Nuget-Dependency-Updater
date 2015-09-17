@@ -37,3 +37,9 @@ Click one component and one project in the lists and then click the Copy button.
 Your Visual Studio proj file may need to be updated to allow the version of the DLL you just copied to be referenced. Find the DLL in the References folder of your project and in the properties (F4) choose "Specific Version = False". When you update the Nuget package later after you've checked in your changes, Nuget will automatically switch this back to True.
 
 If you found this program useful or would like to request a feature or report a bug, please leave a comment!
+
+### Note on Nuget package folder selection
+The regex configuration PackageExpression is used to find all of the appropriately named package folders in the packages folder of your solution. NDU automatically parses the folder names to find the newest one, and that is where the files are copied to. If you want to see more information, you can use the options "Test Mode" which will show you details of the file copy operations or "Confirm Overwrites" which will prompt you when NDU detects a file already exists in the destination.
+
+## Other stuff
+When debugging across projects, it is useful to include the .pdb file (program debug database) and the .xml file (for intellisense documentation) if you chose to generate those, in addition to the .dll. NDU will allow you to copy really any files from the bin directory, but it doesn't copy directories themselves.
